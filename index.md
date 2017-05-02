@@ -1,4 +1,4 @@
-# Repository InDeX of Dark❶   
+# Repository InDeX of Dark❶ #   
    
 1. [Magisk Module Uninstaller Template](https://dark-1.github.io/Magisk-Module-Uninstaller-Template "Magisk Module Uninstaller Template")   
   - This is a **Magisk Module Uninstaller Template** *ZIP* for Developers.  
@@ -6,4 +6,4 @@
   - This is **Magisk Mount & UnMount IMG** *ZIP* for Users/Developers.  
    
    
-## By [Dark❶](https://github.com/dark-1 "Dark❶")   
+## By [Dark❶](https://github.com/dark-1 "Dark❶") ##   
