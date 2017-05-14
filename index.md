@@ -7,7 +7,6 @@
    
 .   
 .   
-[Magisk Module Uninstaller Template](https://github.com/dark-1/Magisk-Module-Uninstaller-Template/blob/master/README.md "Magisk Module Uninstaller Template")   
 .   
 .   
 .   
