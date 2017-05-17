@@ -12,8 +12,9 @@ title: Repository InDeX
    
 .   
 .   
-1. [TempLate](RepoPage/Template "TempLate")   
-    - This is a **Magisk Module Uninstaller Template** *ZIP* for Developers.  
+1. [TempLate](RepoPage/TempLate "TempLate")   
+    - This is a **TempLate** *Testing* Only.  
+    
 .   
 .   
 .   
