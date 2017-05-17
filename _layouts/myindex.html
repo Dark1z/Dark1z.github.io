@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <title>{{ page.title | default: site.github.repository_name }} by Dark❶({{ site.github.owner_name }})</title>
+    <title>{{ page.title }} by {{ site.github.owner_profile_name }}[{{ site.github.owner_name }}]</title>
   </head>
 
   <body>
@@ -22,5 +22,12 @@
         {{ content }}
       </section>
     </div>
+    
+    <footer>
+      <div class="container">
+        <h1>{{ page.title }}</h1>
+        <h2>by Dark❶({{ site.github.owner_name }})</h2>
+      </div>
+    </footer>
   </body>
 </html>
