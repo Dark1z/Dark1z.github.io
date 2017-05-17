@@ -1,5 +1,5 @@
 ---
-layout: layrepo
+layout: layrepopage
 title: TempLate Repository Page
 ---
    
