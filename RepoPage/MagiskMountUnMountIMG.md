@@ -22,6 +22,6 @@ XDA Developers Thread : [**[Magisk] Magisk Mount & UnMount IMG**](https://forum.
   
   
 ### Download : ###   
-[Latest Release](LatestURL "Latest Release")   
+[Latest Release](https://github.com/dark-1/MagiskMountUnMountIMG/releases/latest "Latest Release")   
    
 .

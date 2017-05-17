@@ -22,6 +22,6 @@ XDA Developers Thread : [**[Magisk] Magisk Module Uninstaller Template**](https:
    
    
 ### Download : ###   
-[Latest Release](LatestURL "Latest Release")   
+[Latest Release](https://github.com/dark-1/Magisk-Module-Uninstaller-Template/releases/latest "Latest Release")   
    
 .
