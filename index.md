@@ -1,5 +1,5 @@
 ---
-layout: myindex
+layout: layindex
 title: Repository InDeX
 ---
    
