@@ -1,5 +1,5 @@
 ---
-layout: homedex
+layout: myindex
 title: Repository InDeX
 ---
    
