@@ -12,13 +12,12 @@ title: Repository InDeX
    
 .   
 .   
+1. [TempLate](RepoPage/Template "TempLate")   
+    - This is a **Magisk Module Uninstaller Template** *ZIP* for Developers.  
 .   
 .   
 .   
    
 ## By [Dark❶](https://github.com/dark-1 "Dark❶") ##   
    
-
-----------
-
-[Hit Me To Refresh Page](https://dark-1.github.io)
+.
