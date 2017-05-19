@@ -3,10 +3,9 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=yes">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <title>{{ page.title }} by {{ site.profile_name }}[{{ site.owner_name }}]</title>
-	
   </head>
 
   <body>
@@ -19,11 +18,11 @@
     </header>
 
 	<div>
-        <canvas id="myCanvas" width="600px" height="300px"></canvas>
-        <script src="/JavaScript/jquery.js"></script>
-        <script src="/JavaScript/bub.js"></script>
-        <script src="/JavaScript/apl.js"></script>
-        <script>
+		<canvas id="myCanvas"></canvas>
+        <script type="text/javascript" src="../JavaScript/jquery.js"></script>
+        <script type="text/javascript" src="../JavaScript/alphabet.js"></script>
+        <script type="text/javascript" src="../JavaScript/bubble.js"></script>
+        <script type="text/javascript">
             var black=[0,0,27];
             var red=[0,100,63];
             var orange=[40,100,60];
@@ -31,10 +30,11 @@
             var blue=[196,77,55];
             var purple=[280,50,60];
             var letterColors=[red,orange,green,blue,purple,black];
-            var boncbuble="\x23\x20\x34\x4F\x34\x20\x45\x72\x72\x30\x72\x20\x21";// # 404 Err0r !
-			bubbleShape="\x63\x69\x72\x63\x6C\x65";// circle
-            drawName(boncbuble,letterColors);
-            bounceBubbles(boncbuble);
+            var bubble="# 404 Err0r !";
+			bubbleShape="circle";
+			myMultiplier="0.6";
+            drawName(bubble,letterColors);
+            bounceBubbles();
         </script>
     </div>
 
