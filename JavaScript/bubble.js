@@ -39,6 +39,9 @@ function PointCollection() {
      */
     this.points = [];
 	
+	// multiplication of distance between the cursor 
+	this.distCursor=150 * myMultiplier;
+	
     // the update method is used to track the position of the cursor and accordingly influence each point
     this.update = function() {
 		// for every element in the points array (...)
@@ -63,8 +66,8 @@ function PointCollection() {
              * Otherwise assign to the property targetPos [add_lines] of the current point the original 
              * position of this point.
              */
-            point.targetPos.x = d < 150 ? point.curPos.x - dx : point.originalPos.x;
-            point.targetPos.y = d < 150 ? point.curPos.y - dy : point.originalPos.y;
+            point.targetPos.x = d < this.distCursor ? point.curPos.x - dx : point.originalPos.x;
+            point.targetPos.y = d < this.distCursor ? point.curPos.y - dy : point.originalPos.y;
 			
 			// trigger the update method [add_line_numbers] for the current point
             point.update();
@@ -282,8 +285,8 @@ function initEventListeners() {
 // function updateCanvasDimensions is used to control the size of the canvas
 function updateCanvasDimensions() {
 	
-	myMultiplier = typeof myMultiplier !== 'undefined' ? myMultiplier : "1";
-	canvasWidth = 500 * 2 * myMultiplier;
+	// multiplication of canvas dimension
+	canvasWidth = 1000 * myMultiplier;
 	canvasHeight = 500 * myMultiplier;
 	
     // basic variables, you can change them to resize the canvas element
@@ -416,8 +419,6 @@ function drawName(text, letterColors) {
     if (!$.isArray(text)) {
         text = [text];
     }
-	
-	myMultiplier = typeof myMultiplier !== 'undefined' ? myMultiplier : "1";
 
     // trigger the updateCanvasDimensions function [add_lines]
     updateCanvasDimensions();
@@ -591,7 +592,12 @@ $(window).mouseenter(function() {
 });
 
 // assign to a variable the canvas element with id `myCanvas`
-var canvas = $("#myCanvas");
+//var canvas=$("#myCanvas");
+var canvas = typeof canvas !== 'undefined' ? canvas : $("#myCanvas");
+
+// myMultiplier is 
+//var myMultiplier = 1;
+var myMultiplier = typeof myMultiplier !== 'undefined' ? myMultiplier : 1;
 
 // declaration of the basic variables
 var canvasHeight;
