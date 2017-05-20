@@ -23,9 +23,10 @@
         <script type="text/javascript" src="../JavaScript/alphabet.js"></script>
         <script type="text/javascript" src="../JavaScript/bubble.js"></script>
         <script type="text/javascript">
-			      var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
-			      var myCanvasWidth=w.innerWidth||e.clientWidth||g.clientWidth;
-			      myCanvasWidth = myCanvasWidth < (1000+50) ? (myCanvasWidth-50) : 1000;
+	      		var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+	      		var myCanvasWidth=w.innerWidth||e.clientWidth||g.clientWidth;
+	      		myCanvasWidth = myCanvasWidth < (1000+50) ? (myCanvasWidth-50) : 1000;
+	      		var myContainerWidth = myCanvasWidth > 600 ? 600 : (myCanvasWidth*0.9);
             var black=[0,0,27];
             var red=[0,100,63];
             var orange=[40,100,60];
@@ -34,9 +35,10 @@
             var purple=[280,50,60];
             var letterColors=[red,orange,green,blue,purple,black];
             var bubbleText="# 404 Err0r !";
-			      canvas=$("#ArtCanvas");
-			      bubbleShape="circle";
-			      myMultiplier=myCanvasWidth*0.001*0.9;
+		      	canvas=$("#ArtCanvas");
+		      	bubbleShape="circle";
+		      	//myMultiplier=myCanvasWidth*0.001;
+		      	myMultiplier=myContainerWidth*0.001;
             drawName(bubbleText,letterColors);
             bounceBubbles();
         </script>
