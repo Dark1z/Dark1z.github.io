@@ -595,7 +595,7 @@ $(window).mouseenter(function() {
 //var canvas=$("#myCanvas");
 var canvas = typeof canvas !== 'undefined' ? canvas : $("#myCanvas");
 
-// myMultiplier is 
+// multiplication multiplier variable myMultiplier
 //var myMultiplier = 1;
 var myMultiplier = typeof myMultiplier !== 'undefined' ? myMultiplier : 1;
 

@@ -18,6 +18,14 @@
     </header>
 
     <div class="container">
+      <section id="main_content">
+        {{ content }}
+      </section>
+    </div>
+    
+    <hr>
+    
+    <div class="container">
         <canvas id="ArtCanvas"></canvas>
         <script type="text/javascript" src="../JavaScript/jquery.js"></script>
         <script type="text/javascript" src="../JavaScript/alphabet.js"></script>
@@ -33,19 +41,13 @@
             var blue=[196,77,55];
             var purple=[280,50,60];
             var letterColors=[red,orange,green,blue,purple,limegreen];
-            var bubbleText="# 404 Err0r !";
+			var bubbleText="RepoPage";
             canvas=$("#ArtCanvas");
             bubbleShape="circle";
             myMultiplier=myCanvasWidth*0.001;
             drawName(bubbleText,letterColors);
             bounceBubbles();
         </script>
-    </div>
-
-    <div class="container">
-      <section id="main_content">
-        {{ content }}
-      </section>
     </div>
     
     <hr>
