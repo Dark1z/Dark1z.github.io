@@ -12,5 +12,3 @@ title: Repository InDeX
    
    
 ### By [Dark❶](https://github.com/dark-1 "Dark❶") ###   
-   
-.
