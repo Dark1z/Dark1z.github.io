@@ -270,9 +270,9 @@ function initEventListeners() {
      * page is resized by the user and will be triggered if the user touches the touchscreen and
      * moves their finger
      */
-    $(window).bind('resize', updateCanvasDimensions).bind('touchstart', onTouchStart);
-    $(window).bind('resize', updateCanvasDimensions).bind('touchmove', onTouchMove);
-    $(window).bind('resize', updateCanvasDimensions).bind('touchend mouseup', onTouchEnd);
+    $(canvas).bind('resize', updateCanvasDimensions).bind('touchstart', onTouchStart);
+    $(canvas).bind('resize', updateCanvasDimensions).bind('touchmove', onTouchMove);
+    $(canvas).bind('resize', updateCanvasDimensions).bind('touchend mouseup', onTouchEnd);
 }
 
 // function updateCanvasDimensions is used to control the size of the canvas
