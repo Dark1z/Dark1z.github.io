@@ -272,7 +272,7 @@ function initEventListeners() {
      */
     $(window).bind('resize', updateCanvasDimensions).bind('touchstart', onTouchStart);
     $(window).bind('resize', updateCanvasDimensions).bind('touchmove', onTouchMove);
-    $(window).bind('resize', updateCanvasDimensions).bind('touchend', onTouchEnd);
+    $(window).bind('resize', updateCanvasDimensions).bind('touchend mouseup', onTouchEnd);
 }
 
 // function updateCanvasDimensions is used to control the size of the canvas
@@ -329,7 +329,6 @@ function onTouchMove(e) {
 
 // function onTouchEnd checks the ending position of a finger on the touch screen when touched and accordingly affects the animation
 function onTouchEnd(e) {
-    e.preventDefault();
     // if pointCollection exists (...)
     if (pointCollection) {
         //* (...) set the value of the mousePos property of pointCollection to NULL coordinates
