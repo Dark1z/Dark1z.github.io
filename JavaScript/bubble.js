@@ -9,11 +9,11 @@ bounceBubbles();
 
 // Vector is a data structure used to represent a point in 3d space
 function Vector(x, y, z) {
-	// properties x, y, z represent each coordinate of the point
+    // properties x, y, z represent each coordinate of the point
     this.x = x;
     this.y = y;
     this.z = z;
-	// the set method is used to change the x and y coordinates of the given point
+    // the set method is used to change the x and y coordinates of the given point
     this.set = function(x, y) {
         this.x = x;
         this.y = y;
@@ -22,31 +22,31 @@ function Vector(x, y, z) {
 
 // PointCollection is a data structure used to represent all points forming our animation
 function PointCollection() {
-	/* the mousePos property stores the coordinates of the cursor, 
+    /* the mousePos property stores the coordinates of the cursor, 
      * its initial value is a point in the upper left corner of the 2d plane
      */
     this.mousePos = new Vector(0, 0);
-	
+    
     /* the pointCollectionX and pointCollectionY properties store
      * an additional, random deviation to the position of the point,
      * their initial value is 0
      */
     this.pointCollectionX = 0;
     this.pointCollectionY = 0;
-	
+    
     /* the points property stores all of the points forming our animation, 
      * its initial value is an empty array
      */
     this.points = [];
-	
-	// multiplication of distance between the cursor 
-	this.distCursor=150 * myMultiplier;
-	
+    
+    // multiplication of distance between the cursor 
+    this.distCursor=150 * myMultiplier;
+    
     // the update method is used to track the position of the cursor and accordingly influence each point
     this.update = function() {
-		// for every element in the points array (...)
+        // for every element in the points array (...)
         for (var i = 0; i < this.points.length; i++) {
-			/* Assign:
+            /* Assign:
              * - to variable point: the current point (the element at index i in the points array)
              * - to variable dx: the horizontal distance between the cursor and the current point
              * - to variable dy: the vertical distance between the cursor and the current point
@@ -57,7 +57,7 @@ function PointCollection() {
             var dx = this.mousePos.x - point.curPos.x;
             var dy = this.mousePos.y - point.curPos.y;
             var d = Math.sqrt((dx * dx) + (dy * dy));
-			
+            
             /* Statements below are assignation operations combined with ternary operators [add_doc]
              * If the distance between the cursor and the current point is less than 150 then assign 
              * to the property targetPos [add_lines] of the current point the difference between the
@@ -68,20 +68,20 @@ function PointCollection() {
              */
             point.targetPos.x = d < this.distCursor ? point.curPos.x - dx : point.originalPos.x;
             point.targetPos.y = d < this.distCursor ? point.curPos.y - dy : point.originalPos.y;
-			
-			// trigger the update method [add_line_numbers] for the current point
+            
+            // trigger the update method [add_line_numbers] for the current point
             point.update();
         }
     };
-	
+    
     /* the shake method is used to shake our collection of points. This method is a significant part of the
      * bounceName function [add_lines] we used, for example, in this exercise:
      * http://www.codecademy.com/courses/animate-your-name/2/7
      */
     this.shake = function() {
-		// for every element in the points array (...)
+        // for every element in the points array (...)
         for (var i = 0; i < this.points.length; i++) {
-			/* Assign:
+            /* Assign:
              * - to variable point: the current point (the element at index i in array points)
              * - to variable dx: the horizontal distance between the cursor and the current point
              * - to variable dy: the vertical distance between the cursor and the current point
@@ -92,43 +92,43 @@ function PointCollection() {
             var dx = this.mousePos.x - point.curPos.x;
             var dy = this.mousePos.y - point.curPos.y;
             var d = Math.sqrt((dx * dx) + (dy * dy));
-			
+            
             // if the distance between the cursor and the current point is less than 50 (...)
             if (d < 50) {
-				/* (...) Assign to the pointCollectionX and pointCollectionY properties two random integer numbers
+                /* (...) Assign to the pointCollectionX and pointCollectionY properties two random integer numbers
                  * from set [-2, -1, 0, 1, 2]
                  */
                 this.pointCollectionX = Math.floor(Math.random() * 5) - 2;
                 this.pointCollectionY = Math.floor(Math.random() * 5) - 2;
             }
-			
+            
             /* trigger the draw method [add_lines] for the current point with the parameters
              * pointCollectionX and pointCollectionY which affect the position of the point
              */
             point.draw(bubbleShape, this.pointCollectionX, this.pointCollectionY);
         }
     };
-	
+    
     // the draw method is used to draw our collection of points
     this.draw = function(bubbleShape, reset) {
-		// for every element in the points array (...)
+        // for every element in the points array (...)
         for (var i = 0; i < this.points.length; i++) {
-			// (...) assign to the variable point the current point (the element at index i in the points array)
+            // (...) assign to the variable point the current point (the element at index i in the points array)
             var point = this.points[i];
-			
+            
             // if the current point does not exist (...)
             if (point === null)
-				// (...) go to the next iteration, next point
+                // (...) go to the next iteration, next point
                 continue;
-				
+                
             // if the reset property of the window object is set to true (...)
             if (window.reset) {
-				// (...) assign default, initial values to the variables as listed below
+                // (...) assign default, initial values to the variables as listed below
                 this.pointCollectionX = 0;
                 this.pointCollectionY = 0;
                 this.mousePos = new Vector(0, 0);
             }
-			
+            
             // trigger the draw method for the current points [add]
             point.draw(bubbleShape, this.pointCollectionX, this.pointCollectionY, reset);
         }
@@ -137,18 +137,18 @@ function PointCollection() {
 
 // Point is a data structure used to represent single points / bubbles in our animation
 function Point(x, y, z, size, color) {
-	/* the curPos property stores the current position of our bubble in 3d space,
+    /* the curPos property stores the current position of our bubble in 3d space,
      * its initial value is equal to the coordinates defined in alphabet.js (parameters x, y, z)
      */
     this.curPos = new Vector(x, y, z);
-	// the color property stores the color of our bubble defined by us in main.js
+    // the color property stores the color of our bubble defined by us in main.js
     this.color = color;
-	
+    
     // load these settings from document [add_line_numbers]
     this.friction = document.Friction;
     this.rotationForce = document.rotationForce;
     this.springStrength = document.springStrength;
-	
+    
     // the originalPos property stores a Vector (point) with the coordinates defined in alphabet.js (parameters x, y, z)
     this.originalPos = new Vector(x, y, z);
     // the basic values of radius and size is a value defined in alphabet.js (parameter size)
@@ -167,11 +167,11 @@ function Point(x, y, z, size, color) {
         var dy = this.targetPos.y - this.curPos.y;
         var ax = dx * this.springStrength - this.rotationForce * dy;
         var ay = dy * this.springStrength + this.rotationForce * dx;
-		
+        
         this.velocity.x += ax;
         this.velocity.x *= this.friction;
         this.curPos.x += this.velocity.x;
-		
+        
         this.velocity.y += ay;
         this.velocity.y *= this.friction;
         this.curPos.y += this.velocity.y;
@@ -185,14 +185,14 @@ function Point(x, y, z, size, color) {
         var dox = this.originalPos.x - this.curPos.x;
         var doy = this.originalPos.y - this.curPos.y;
         var d = Math.sqrt((dox * dox) + (doy * doy));
-		
+        
         this.targetPos.z = d / 100 + 1;
         var dz = this.targetPos.z - this.curPos.z;
         var az = dz * this.springStrength;
         this.velocity.z += az;
         this.velocity.z *= this.friction;
         this.curPos.z += this.velocity.z;
-		
+        
         this.radius = this.size * this.curPos.z;
         if (this.radius < 1) this.radius = 1;
     };
@@ -265,30 +265,23 @@ function initEventListeners() {
      * the cursor is moved
      */
     $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
-
-    /* this function will be triggered if the user touches the screen and moves their finger 
-     * (for example in smartphones)
+    
+    /* this statements will trigger the updateCanvasDimensions function [add_line_numbers] if our 
+     * page is resized by the user and will be triggered if the user touches the touchscreen and
+     * moves their finger
      */
-    canvas.ontouchmove = function(e) {
-        // preventDefault statement terminates default action of the event [why do this?]
-        e.preventDefault();
-        // trigger function onTouchMove [add_line_numbers]
-        onTouchMove(e);
-    };
-    // this function will be triggered if the user touches the screen
-    canvas.ontouchstart = function(e) {
-        // preventDefault statement terminates default action of the event [why do this?]
-        e.preventDefault();
-    };
+    $(window).bind('resize', updateCanvasDimensions).bind('touchstart', onTouchStart);
+    $(window).bind('resize', updateCanvasDimensions).bind('touchmove', onTouchMove);
+    $(window).bind('resize', updateCanvasDimensions).bind('touchend', onTouchEnd);
 }
 
 // function updateCanvasDimensions is used to control the size of the canvas
 function updateCanvasDimensions() {
-	
-	// multiplication of canvas dimension
-	canvasWidth = 1000 * myMultiplier;
-	canvasHeight = 500 * myMultiplier;
-	
+    
+    // multiplication of canvas dimension
+    canvasWidth = 1000 * myMultiplier;
+    canvasHeight = 500 * myMultiplier;
+    
     // basic variables, you can change them to resize the canvas element
     canvas.attr({
         height: canvasHeight,
@@ -312,14 +305,35 @@ function onMove(e) {
     }
 }
 
-// function onTouchMove checks the position of a finger on the touch screen and accordingly affects the animation
+// function onTouchStart checks the start position of a finger on the touch screen during touch and accordingly affects the animation
+function onTouchStart(e) {
+    // if pointCollection exists (...)
+    if (pointCollection) {
+        /* (...) set the value of the mousePos property of pointCollection to the touch coordinates
+         * relative to the canvas element
+         */
+        pointCollection.mousePos.set(e.originalEvent.touches[0].clientX - canvas.offset().left, e.originalEvent.touches[0].clientY - canvas.offset().top);
+    }
+}
+
+// function onTouchMove checks the moving position of a finger on the touch screen when touching and accordingly affects the animation
 function onTouchMove(e) {
     // if pointCollection exists (...)
     if (pointCollection) {
-        /* (...) set the value of the mousePos property of pointCollection to the mouse coordinates
+        /* (...) set the value of the mousePos property of pointCollection to the touch coordinates
          * relative to the canvas element
          */
-        pointCollection.mousePos.set(e.targetTouches[0].pageX - canvas.offset().left, e.targetTouches[0].pageY - canvas.offset().top);
+        pointCollection.mousePos.set(e.originalEvent.touches[0].clientX - canvas.offset().left, e.originalEvent.touches[0].clientY - canvas.offset().top);
+    }
+}
+
+// function onTouchEnd checks the ending position of a finger on the touch screen when touched and accordingly affects the animation
+function onTouchEnd(e) {
+	e.preventDefault();
+    // if pointCollection exists (...)
+    if (pointCollection) {
+        //* (...) set the value of the mousePos property of pointCollection to NULL coordinates
+        pointCollection.mousePos.set(0, 0);
     }
 }
 
@@ -415,7 +429,7 @@ function update() {
  * letterColors and to initialize the event listeners
  */
 function drawName(text, letterColors) {
-	// Get Array
+    // Get Array
     if (!$.isArray(text)) {
         text = [text];
     }
@@ -443,12 +457,12 @@ function drawName(text, letterColors) {
                 letterColors = letterCols;
             }
             // (...) or if it is an array of numbers (...)
-			else if (Object.prototype.toString.call(letterCols) === '[object Array]' && typeof letterCols[0] === "number") {
+            else if (Object.prototype.toString.call(letterCols) === '[object Array]' && typeof letterCols[0] === "number") {
                 // (...) assign to variable letterColors an array with one element inside - value of letterCols parameter
                 letterColors = [letterCols];
             }
         } else { 
-			// if the variable passed as the letterCols parameter is not defined (...)
+            // if the variable passed as the letterCols parameter is not defined (...)
             // (...) assign to variable letterColors an array with one element (dark gray color) array
             letterColors = [
                 [0, 0, 27]
@@ -468,8 +482,8 @@ function drawName(text, letterColors) {
             for (var i = 0; i < chr_data.length; ++i) {
                 // (...) assign to variable point the current element of the chr_data array
                 point = chr_data[i];
-				
-				// gIndex increment
+                
+                // gIndex increment
                 gIndex++;
 
                 /* Add to array g a new Point object:
@@ -484,80 +498,80 @@ function drawName(text, letterColors) {
                  *   more information about fading in this article ->
                  *   http://www.codecademy.com/forum_questions/5338606c282ae3de6c007ee3
                  */
-				 // multiplication of x and y coordinates by defined value
-				 
+                 // multiplication of x and y coordinates by defined value
+                 
                 g.push(new Point(
-					// multiplication of x coordinate by defined value
-					point[0] * myMultiplier + offset,
-					// multiplication of y coordinate by defined value
+                    // multiplication of x coordinate by defined value
+                    point[0] * myMultiplier + offset,
+                    // multiplication of y coordinate by defined value
                     point[1] * myMultiplier,
                     0.0,
-					// multiplication of dot size by defined value
+                    // multiplication of dot size by defined value
                     point[2] * myMultiplier,
                     makeColor(bc, point[3])));
             }
             
             // add to the variable offset width (property W) of the given letter (with hex code equal to parameter cc_hex)
-			// multiplication of letter width by defined value
+            // multiplication of letter width by defined value
             offset += document.alphabet[cc_hex].W * myMultiplier;
         }
     }
-	
-	// lineIndex loop
+    
+    // lineIndex loop
     for (var lineIndex = 0; lineIndex < text.length; lineIndex++) {
-		// the variable offset will store the current width of our animation
+        // the variable offset will store the current width of our animation
         offset = 0;
-		
-		// Assign gIndex to startIndex
+        
+        // Assign gIndex to startIndex
         var startIndex = gIndex;
     
-		/* Assign to the variable hexphrase the result of the phraseToHex function [add_lines] called with passed
-		 * name as a parameter. As a result the variable hexphrase will store an array of letters which
-		 * creates our name coded in hex values. It is important, because letters in alphabet.js are
-		 * coded in this way.
-		 */
+        /* Assign to the variable hexphrase the result of the phraseToHex function [add_lines] called with passed
+         * name as a parameter. As a result the variable hexphrase will store an array of letters which
+         * creates our name coded in hex values. It is important, because letters in alphabet.js are
+         * coded in this way.
+         */
         var hexphrase = phraseToHex(text[lineIndex]);
     
-		// variable col_ix stores index (in letterColors array) of next color to use
+        // variable col_ix stores index (in letterColors array) of next color to use
         var col_ix = 0;
-		
-		/* The for loop below is used to iterate through every letter in a hexphrase string.
-		 * But, previously to iterate through every element we incremented i by 1. In this case
-		 * we have to add 2 to i after every step because every letter in our array is represented
-		 * by two characters (for example A is depicted as 41).
-		 */
+        
+        /* The for loop below is used to iterate through every letter in a hexphrase string.
+         * But, previously to iterate through every element we incremented i by 1. In this case
+         * we have to add 2 to i after every step because every letter in our array is represented
+         * by two characters (for example A is depicted as 41).
+         */
         for (var i = 0; i < hexphrase.length; i += 2) {
-			/* Variable cc_hex stores the actual letter of hexphrase in the format used in alphabet.js
-			 * (A + hexvalue). Hexvalue is calculated by concatenating the character at index i with
-			 * the next character (index i + 1).
-			 */
+            /* Variable cc_hex stores the actual letter of hexphrase in the format used in alphabet.js
+             * (A + hexvalue). Hexvalue is calculated by concatenating the character at index i with
+             * the next character (index i + 1).
+             */
             var cc_hex = "A" + hexphrase.charAt(i) + hexphrase.charAt(i + 1);
-			/* Tigger the addLetter function [add_lines] to add to our animation character
-			 * with hex value equal to cc_hex and color defined in letterColors at index
-			 * col_ix. This operation affects the value of variable g.
-			 */
+            /* Tigger the addLetter function [add_lines] to add to our animation character
+             * with hex value equal to cc_hex and color defined in letterColors at index
+             * col_ix. This operation affects the value of variable g.
+             */
             addLetter(cc_hex, col_ix, letterColors);
         
-			/* If statement below will increment col_ix by 1 if current character
-			 * is not a space (hex value 20). We have to use this code to make sure
-			 * that spaces do not affect col_ix (they are invisible, so we should not
-			 * 'reserve' color for them).
-			 */
+            /* If statement below will increment col_ix by 1 if current character
+             * is not a space (hex value 20). We have to use this code to make sure
+             * that spaces do not affect col_ix (they are invisible, so we should not
+             * 'reserve' color for them).
+             */
             if (cc_hex != "A20") {
                 col_ix++;
             }
         }
     
-		// for every element in array g (for every single point in our animation) (...)
+        // for every element in array g (for every single point in our animation) (...)
         for (var j = startIndex; j < g.length; j++) {
-			/* Add to properties curPos.x and originalPos.x a left margin calculated from the formula:
-			 * width of our canvas / 2 - width of our animation / 2. We repeat this operation for
-			 * verical properties (curPos.y and originalPos.y), this time we affect the vertical position
-			 * but instead of using a variable we hard coded `105` as it is half of the height of our animation, why?
-			 * Because by checking values of property P[1] of every point in alphabet.js we can find out
-			 * that 210 is the difference between minimal and maximal vertical value.
-			 * In summary, code below is used to center your animation horizontally and vertically.
-			 */
+            /* Add to properties curPos.x and originalPos.x a left margin calculated from the formula:
+             * width of our canvas / 2 - width of our animation / 2. We repeat this operation for
+             * verical properties (curPos.y and originalPos.y), this time we affect the vertical position
+             * but instead of using a variable we hard coded `105` as it is half of the height of our animation, why?
+             * Because by checking values of property P[1] of every point in alphabet.js we can find out
+             * that 210 is the difference between minimal and maximal vertical value.
+             * In summary, code below is used to center your animation horizontally and vertically.
+             */
             g[j].curPos.x += (canvasWidth / 2 - offset / 2);
             g[j].curPos.y += (canvasHeight / text.length / 2 + lineIndex * canvasHeight / text.length - 105 * myMultiplier );
             g[j].originalPos.x += (canvasWidth / 2 - offset / 2);
