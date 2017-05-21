@@ -329,7 +329,7 @@ function onTouchMove(e) {
 
 // function onTouchEnd checks the ending position of a finger on the touch screen when touched and accordingly affects the animation
 function onTouchEnd(e) {
-	e.preventDefault();
+    e.preventDefault();
     // if pointCollection exists (...)
     if (pointCollection) {
         //* (...) set the value of the mousePos property of pointCollection to NULL coordinates
