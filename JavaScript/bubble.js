@@ -270,9 +270,8 @@ function initEventListeners() {
      * page is resized by the user and will be triggered if the user touches the touchscreen and
      * moves their finger
      */
-    $(canvas).bind('resize', updateCanvasDimensions).bind('touchstart', onTouchStart);
-    $(canvas).bind('resize', updateCanvasDimensions).bind('touchmove', onTouchMove);
-    $(canvas).bind('resize', updateCanvasDimensions).bind('touchend mouseup', onTouchEnd);
+    $(window).bind('resize', updateCanvasDimensions).bind('touchstart touchmove', onTouchMove);
+    $(window).bind('resize', updateCanvasDimensions).bind('touchend mouseup', onTouchEnd);
 }
 
 // function updateCanvasDimensions is used to control the size of the canvas
@@ -305,25 +304,14 @@ function onMove(e) {
     }
 }
 
-// function onTouchStart checks the start position of a finger on the touch screen during touch and accordingly affects the animation
-function onTouchStart(e) {
-    // if pointCollection exists (...)
-    if (pointCollection) {
-        /* (...) set the value of the mousePos property of pointCollection to the touch coordinates
-         * relative to the canvas element
-         */
-        pointCollection.mousePos.set(e.originalEvent.touches[0].clientX - canvas.offset().left, e.originalEvent.touches[0].clientY - canvas.offset().top);
-    }
-}
-
-// function onTouchMove checks the moving position of a finger on the touch screen when touching and accordingly affects the animation
+// function onTouchMove checks the position of a finger on the touch screen while touching and accordingly affects the animation
 function onTouchMove(e) {
     // if pointCollection exists (...)
     if (pointCollection) {
         /* (...) set the value of the mousePos property of pointCollection to the touch coordinates
          * relative to the canvas element
          */
-        pointCollection.mousePos.set(e.originalEvent.touches[0].clientX - canvas.offset().left, e.originalEvent.touches[0].clientY - canvas.offset().top);
+        pointCollection.mousePos.set(e.originalEvent.touches[0].pageX - canvas.offset().left, e.originalEvent.touches[0].pageY - canvas.offset().top);
     }
 }
 
