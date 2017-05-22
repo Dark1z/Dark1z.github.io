@@ -3,7 +3,7 @@ layout: layindex
 title: Repository InDeX
 ---
    
-# Repository InDeX of Dark❶[dark-1] #   
+# Repository InDeX of Dark❶ [dark-1] #   
    
 1. [Magisk Module Uninstaller Template](RepoPage/Magisk-Module-Uninstaller-Template "Magisk Module Uninstaller Template")   
     - This is a **Magisk Module Uninstaller Template** *ZIP* for Developers.  
