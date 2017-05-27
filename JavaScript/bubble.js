@@ -1,11 +1,43 @@
-/*
-To create animation with many lines you have to pass array (one element = one line) as a first parameter
-to function drawName, example:
-var myName = ["I", "<3", "codecademy"];
-var letterColors = [[204, 70, 53], [48, 89, 50], [6, 78, 57], [283, 39, 53]];
-drawName(myName, letterColors);
-bounceBubbles();
-*/
+/* Author :
+ * Coded by Maciej Wiercioch [factoradic]
+ * Profile @ GitHub : https://github.com/factoradic
+ * 
+ * More Details :=
+ * At CodeCademy : https://www.codecademy.com/courses/animate-your-name
+ * At GitHub : https://github.com/AlbionsRefuge/bubbles-faq
+ */
+ 
+/* Author's Notes :
+ * To create animation with many lines you have to pass array (one element = one line) as a first parameter
+ * to function drawName, example:
+ * var myName = ["I", "<3", "codecademy"];
+ * var letterColors = [[204, 70, 53], [48, 89, 50], [6, 78, 57], [283, 39, 53]];
+ * drawName(myName, letterColors);
+ * bounceBubbles();
+ */
+
+/* Sub-Author :
+ * Code Modified/Edited by Dark❶ [dark-1]
+ * Profile @ GitHub : https://github.com/dark-1
+ * 
+ * More Details : I Modified the code as per my requirements , So No Fuzzz... about it.
+ */
+
+/* Sub-Author's Notes :
+ * - Variable `bubbleShape` is now checked Once instead of twice and Defaulted to `circle`if not defined.
+ * - Variable `canvas` is now made to take any **Canvas** *Object* But Defaulted to `myCanvas` if not defined.
+ * - Added Variable `bubbleMultiplier` which Multiplies the factor to :   
+ *     - `PointCollection.distCursor` (This is also a New Variable).
+ *     - `canvasWidth` & `canvasHeight` to resize the **Canvas**.
+ *     - In Function `drawName.addLetter.Point` to Variable's `point[0,1,2]` for Point object.
+ *     - In Function `drawName.addLetter` to Variable `document.alphabet[cc_hex].W` for letter width.
+ *     - In Function `drawName` to Variable's `g[].curPos.y` & `g[].originalPos.y` for every single point in the animation.
+ *     - Yep ! , That's it.
+ * - All Comments from `bubbles.js` is copied to `multipleLineBubbles.js` and saved as `bubble.js`.
+ * - Used **[JS Beautifier](http://jsbeautifier.org)** on `alphabet.js` & corrected some Indentation & made it more Pleasing.
+ * - Added Plenty of Comments in `bubble.js` & `alphabet.js`.
+ * - If anything else I'll add later.
+ */
 
 // Vector is a data structure used to represent a point in 3d space
 function Vector(x, y, z) {
@@ -40,7 +72,7 @@ function PointCollection() {
     this.points = [];
     
     // multiplication of distance between the cursor 
-    this.distCursor=150 * myMultiplier;
+    this.distCursor=150 * bubbleMultiplier;
     
     // the update method is used to track the position of the cursor and accordingly influence each point
     this.update = function() {
@@ -165,6 +197,7 @@ function Point(x, y, z, size, color) {
     this.update = function() {
         var dx = this.targetPos.x - this.curPos.x;
         var dy = this.targetPos.y - this.curPos.y;
+		// Orthogonal vector is [-dy,dx]
         var ax = dx * this.springStrength - this.rotationForce * dy;
         var ay = dy * this.springStrength + this.rotationForce * dx;
         
@@ -278,8 +311,8 @@ function initEventListeners() {
 function updateCanvasDimensions() {
     
     // multiplication of canvas dimension
-    canvasWidth = 1000 * myMultiplier;
-    canvasHeight = 500 * myMultiplier;
+    canvasWidth = 1000 * bubbleMultiplier;
+    canvasHeight = 500 * bubbleMultiplier;
     
     // basic variables, you can change them to resize the canvas element
     canvas.attr({
@@ -359,12 +392,6 @@ function draw(reset) {
     // the statement below is used to erase everything from the canvas element
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-    /* the syntax below is an example of the ternary operator - shorthand for if ... else construction
-     * if the shape of our bubbles is not defined use "circle" as the shape
-     * otherwise use the current shape
-     */
-    bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
-
     // if pointCollection exists (...)
     if (pointCollection) {
         // (...) trigger the draw function of the pointCollection object [add_line_numbers]
@@ -387,12 +414,6 @@ function shake() {
     
     // the statement below is used to erase everything from the canvas element
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-    /* the syntax below is example of ternary operator - shorthand for if ... else construction
-     * if the shape of our bubbles is not defined use "circle" as the shape
-     * otherwise use current shape
-     */
-    bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
 
     // if pointCollection exists (...)
     if (pointCollection) {
@@ -489,18 +510,18 @@ function drawName(text, letterColors) {
                  
                 g.push(new Point(
                     // multiplication of x coordinate by defined value
-                    point[0] * myMultiplier + offset,
+                    point[0] * bubbleMultiplier + offset,
                     // multiplication of y coordinate by defined value
-                    point[1] * myMultiplier,
+                    point[1] * bubbleMultiplier,
                     0.0,
                     // multiplication of dot size by defined value
-                    point[2] * myMultiplier,
+                    point[2] * bubbleMultiplier,
                     makeColor(bc, point[3])));
             }
             
             // add to the variable offset width (property W) of the given letter (with hex code equal to parameter cc_hex)
             // multiplication of letter width by defined value
-            offset += document.alphabet[cc_hex].W * myMultiplier;
+            offset += document.alphabet[cc_hex].W * bubbleMultiplier;
         }
     }
     
@@ -560,9 +581,9 @@ function drawName(text, letterColors) {
              * In summary, code below is used to center your animation horizontally and vertically.
              */
             g[j].curPos.x += (canvasWidth / 2 - offset / 2);
-            g[j].curPos.y += (canvasHeight / text.length / 2 + lineIndex * canvasHeight / text.length - 105 * myMultiplier );
+            g[j].curPos.y += (canvasHeight / text.length / 2 + lineIndex * canvasHeight / text.length - 105 * bubbleMultiplier );
             g[j].originalPos.x += (canvasWidth / 2 - offset / 2);
-            g[j].originalPos.y += (canvasHeight / text.length / 2 + lineIndex * canvasHeight / text.length - 105 * myMultiplier );
+            g[j].originalPos.y += (canvasHeight / text.length / 2 + lineIndex * canvasHeight / text.length - 105 * bubbleMultiplier );
         }
     }
 
@@ -592,13 +613,18 @@ $(window).mouseenter(function() {
     window.reset = false;
 });
 
-// assign to a variable the canvas element with id `myCanvas`
-//var canvas=$("#myCanvas");
+/* the syntax below is an example of the ternary operator - shorthand for if ... else construction
+ * if the shape of our bubbles is not defined then use "circle" as the shape
+ * otherwise use the current shape
+ */
+var bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
+
+// assign default value to the variable 'canvas' element with id "myCanvas"
 var canvas = typeof canvas !== 'undefined' ? canvas : $("#myCanvas");
 
-// multiplication multiplier variable myMultiplier
-//var myMultiplier = 1;
-var myMultiplier = typeof myMultiplier !== 'undefined' ? myMultiplier : 1;
+// multiplication multiplier variable 'bubbleMultiplier'
+var bubbleMultiplier = typeof bubbleMultiplier !== 'undefined' ? bubbleMultiplier : 1;
+
 
 // declaration of the basic variables
 var canvasHeight;
