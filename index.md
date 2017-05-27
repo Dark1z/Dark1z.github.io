@@ -12,6 +12,3 @@ title: Repository InDeX
 3. [Bounce Bubble](BounceBubble "Bounce Bubble")   
     - This is **Bounce Bubble** which you are *Seeing Above*.  
     - This is my way of giving **Credits** & saying **Thank You**.   
-   
-   
-### By [Dark❶](https://github.com/dark-1 "Dark❶") ###   
