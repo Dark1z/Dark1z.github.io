@@ -19,7 +19,7 @@
 
     <div class="container">
         <section id="main_content">
-            <canvas id="ArtCanvas" style="height: auto; width: 100%;"></canvas>
+            <canvas id="ArtCanvas"></canvas>
             <script type="text/javascript" src="JavaScript/jquery.js"></script>
             <script type="text/javascript" src="JavaScript/alphabet.js"></script>
             <script type="text/javascript" src="JavaScript/bubble.js"></script>
@@ -28,7 +28,7 @@
                 {
                     var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
                     var myCanvasWidth=w.innerWidth||e.clientWidth||g.clientWidth;
-                    //myCanvasWidth = myCanvasWidth > 600 ? 600 : (myCanvasWidth*0.9);
+                    myCanvasWidth = myCanvasWidth*0.9;
                     var limegreen=[120,80,40];
                     var red=[0,100,63];
                     var orange=[40,100,60];
@@ -43,6 +43,7 @@
                     drawName(bubbleText,letterColors);
                     bounceBubbles();
                 }
+                resizeArtCanvas();
             </script>
             <hr>
         </section>
