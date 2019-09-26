@@ -5,10 +5,5 @@ title: Repository InDeX
    
 # Repository InDeX of Dark❶ [dark-1] #   
    
-1. [Magisk Module Uninstaller Template](Magisk-Module-Uninstaller-Template "Magisk Module Uninstaller Template")   
-    - This is a **Magisk Module Uninstaller Template** *ZIP* for Developers.  
-2. [Magisk Mount & UnMount IMG](MagiskMountUnMountIMG "Magisk Mount & UnMount IMG")   
-    - This is **Magisk Mount & UnMount IMG** *ZIP* for Users/Developers.  
-3. [Bounce Bubble](BounceBubble "Bounce Bubble")   
-    - This is **Bounce Bubble** which you are *Seeing Above*.  
-    - This is my way of giving **Credits** & saying **Thank You**.   
+1. [Member Avatar & Status [MAS]](memberavatarstatus "Member Avatar & Status [MAS]")   
+    - This [phpBB](//phpbb.com "phpBB") Extension Lets Admin to display User's Avatar & it's Online Status on *Index* , *Memberlist* , *The Team* , *Viewonline[Who is online]* , *Who Is Online Stat Block* , *Viewforum* , *Search* , *Posting Topic Review* , *MCP Topic Review* , *PM History Review* .  ;)  
