@@ -18,15 +18,17 @@
     </header>
 
     <div class="container">
-        <section id="main_content" class="sectionArtCanvas">
-            <canvas id="ArtCanvas"></canvas>
+        <section id="main_content">
+            <div id="wrapArtCanvas" style="width: 100%; height: auto;">
+                <canvas id="ArtCanvas"></canvas>
+            </div>
             <script type="text/javascript" src="JavaScript/jquery.js"></script>
             <script type="text/javascript" src="JavaScript/alphabet.js"></script>
             <script type="text/javascript" src="JavaScript/bubble.js"></script>
             <script type="text/javascript">
                 function resizeArtCanvas()
                 {
-                    var myCanvasWidth = document.getElementsByClassName("sectionArtCanvas")[0].getAttributeNode("width").value;
+                    var myCanvasWidth = document.getElementById("wrapArtCanvas").offsetWidth;
                     myCanvasWidth = myCanvasWidth*0.9;
                     var limegreen=[120,80,40];
                     var red=[0,100,63];
