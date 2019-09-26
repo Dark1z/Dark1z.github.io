@@ -31,6 +31,7 @@
                     var myCanvasWidth = document.getElementById("wrapArtCanvas").offsetWidth;
                     bubbleMultiplier=myCanvasWidth*0.001;
                     updateCanvasDimensions();
+                    drawName(bubbleText,letterColors);
                     bounceBubbles();
                 }
                 var limegreen=[120,80,40];
@@ -43,7 +44,6 @@
                 var bubbleText="Wel-Come !";
                 canvas=$("#ArtCanvas");
                 bubbleShape="circle";
-                drawName(bubbleText,letterColors);
                 resizeArtCanvas();
             </script>
             <hr>
