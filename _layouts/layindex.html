@@ -8,7 +8,7 @@
     <title>{{ page.title }} by {{ site.profile_name }} [{{ site.owner_name }}]</title>
   </head>
 
-  <body onresize="resizeArtCanvas()">
+  <body>
 
     <header>
       <div class="container">
@@ -18,22 +18,15 @@
     </header>
 
     <div class="container">
-        <section id="main_content">
-            <div id="wrapArtCanvas" style="width: 100%; height: auto;">
-                <canvas id="ArtCanvas"></canvas>
-            </div>
+        <section id="main_content" style="text-align: center;">
+            <canvas id="ArtCanvas"></canvas>
             <script type="text/javascript" src="JavaScript/jquery.js"></script>
             <script type="text/javascript" src="JavaScript/alphabet.js"></script>
             <script type="text/javascript" src="JavaScript/bubble.js"></script>
             <script type="text/javascript">
-                function resizeArtCanvas()
-                {
-                    var myCanvasWidth = document.getElementById("wrapArtCanvas").offsetWidth;
-                    bubbleMultiplier=myCanvasWidth*0.001;
-                    updateCanvasDimensions();
-                    drawName(bubbleText,letterColors);
-                    bounceBubbles();
-                }
+                var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0];
+                var myCanvasWidth=w.innerWidth||e.clientWidth||g.clientWidth;
+                myCanvasWidth = myCanvasWidth > 600 ? 600 : (myCanvasWidth*0.9);
                 var limegreen=[120,80,40];
                 var red=[0,100,63];
                 var orange=[40,100,60];
@@ -44,7 +37,9 @@
                 var bubbleText="Wel-Come !";
                 canvas=$("#ArtCanvas");
                 bubbleShape="circle";
-                resizeArtCanvas();
+                bubbleMultiplier=myCanvasWidth*0.001;
+                drawName(bubbleText,letterColors);
+                bounceBubbles();
             </script>
             <hr>
         </section>
