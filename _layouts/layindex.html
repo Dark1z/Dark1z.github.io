@@ -18,7 +18,7 @@
     </header>
 
     <div class="container">
-        <section id="main_content">
+        <section id="main_content" name="sectionArtCanvas">
             <canvas id="ArtCanvas"></canvas>
             <script type="text/javascript" src="JavaScript/jquery.js"></script>
             <script type="text/javascript" src="JavaScript/alphabet.js"></script>
@@ -26,7 +26,7 @@
             <script type="text/javascript">
                 function resizeArtCanvas()
                 {
-                    var myCanvasWidth = document.getElementsById("main_content").getAttributeNode("width").value;
+                    var myCanvasWidth = document.getElementsByName("sectionArtCanvas").getAttributeNode("width").value;
                     myCanvasWidth = myCanvasWidth*0.9;
                     var limegreen=[120,80,40];
                     var red=[0,100,63];
