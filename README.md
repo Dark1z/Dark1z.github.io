@@ -6,6 +6,6 @@ My Website , & what else.
 Need a README for it ? , *Seriously* ? ... !!! **No**...   
    
 Go Here to See Site in Action :  
-[Dark-1.GitHub.IO](https://dark-1.github.io)
+[Dark1z.GitHub.IO](https://dark1z.github.io)
    
-## By [Dark❶](https://github.com/dark-1 "Dark❶") ##   
+## By [Dark❶](https://github.com/dark1z "Dark❶") ##   
